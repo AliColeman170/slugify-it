@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { CopyIcon, XCircleIcon } from "lucide-react";
 
 export default function Home() {
@@ -56,83 +57,71 @@ export default function Home() {
               .it
             </span>
           </h1>
-          <p className="text-gray-800 dark:text-white/70 text-lg font-medium">
+          <p className="text-lg font-medium opacity-90">
             Convert any text into SEO-friendly slugs instantly.
           </p>
         </div>
 
         <Card className="bg-(--glass-card-bg) backdrop-blur-[30px] border-(--glass-card-border) shadow-(--glass-card-shadow) rounded-lg">
           <CardHeader>
-            <CardTitle className="text-gray-900 dark:text-white/90 text-xl font-bold">
-              Text to Slug Converter
-            </CardTitle>
-            <CardDescription className="text-gray-700 dark:text-white/60">
+            <CardTitle>Text to Slug Converter</CardTitle>
+            <CardDescription>
               Enter your text below and get an SEO-friendly slug perfect for
               URLs, filenames, and more.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <label
-                htmlFor="input-text"
-                className="text-sm font-medium text-gray-900 dark:text-white/80"
-              >
-                Original Text
-              </label>
+          <CardContent className="grid gap-6">
+            <div className="grid gap-2">
+              <Label htmlFor="input-text">Original Text</Label>
               <div className="relative">
                 <Input
                   id="input-text"
                   placeholder="Enter text to convert..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  className="bg-(--glass-input-bg) backdrop-blur-[10px] border-(--glass-input-border) focus:bg-(--glass-input-focus-bg) focus:border-(--glass-input-focus-border) transition-all duration-300 text-base text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-white/40 pr-10"
+                  className="bg-(--glass-input-bg) backdrop-blur-[10px] border-(--glass-input-border) focus:bg-(--glass-input-focus-bg) focus:border-(--glass-input-focus-border) transition-all duration-300 pr-10"
                 />
                 {inputText && (
                   <Button
                     onClick={() => setInputText("")}
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 size-6 bg-transparent hover:bg-transparent dark:hover:bg-transparent text-gray-900 dark:text-white/80 hover:text-gray-700 dark:hover:text-white"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 size-6 bg-transparent hover:bg-transparent dark:hover:bg-transparent"
                     aria-label="Clear input"
                   >
-                    <XCircleIcon className="h-4 w-4" />
+                    <XCircleIcon />
                   </Button>
                 )}
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label
-                htmlFor="slug-output"
-                className="text-sm font-medium text-gray-900 dark:text-white/80"
-              >
-                Generated Slug
-              </label>
+            <div className="grid gap-2">
+              <Label htmlFor="slug-output">Generated Slug</Label>
               <div className="flex gap-2">
                 <Input
                   id="slug-output"
                   value={slug}
                   readOnly
                   placeholder="your-seo-friendly-slug"
-                  className="bg-(--glass-input-bg) backdrop-blur-[10px] border-(--glass-input-border) focus:bg-(--glass-input-focus-bg) focus:border-(--glass-input-focus-border) transition-all duration-300 text-base font-mono text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-white/40"
+                  className="bg-(--glass-input-bg) backdrop-blur-[10px] border-(--glass-input-border) focus:bg-(--glass-input-focus-bg) focus:border-(--glass-input-focus-border) transition-all duration-300"
                 />
                 <Button
                   onClick={handleCopy}
                   disabled={!slug}
                   variant="outline"
                   size="icon"
-                  className="bg-(--glass-button-bg) backdrop-blur-[10px] border-(--glass-button-border) hover:bg-(--glass-button-hover-bg) hover:shadow-(--glass-button-hover-shadow) hover:-translate-y-0.5 transition-all duration-300 shrink-0 text-gray-900 dark:text-white/80 hover:text-gray-700 dark:hover:text-white"
+                  className="bg-(--glass-button-bg) backdrop-blur-[10px] border-(--glass-button-border) hover:bg-(--glass-button-hover-bg) hover:shadow-(--glass-button-hover-shadow) hover:-translate-y-0.5 transition-all duration-300 shrink-0"
                   aria-label="Copy slug"
                 >
-                  <CopyIcon className="h-4 w-4" />
+                  <CopyIcon />
                 </Button>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <div className="text-center mt-8 text-sm text-gray-700 dark:text-white/50">
-          <p>Perfect for URLs, filenames, and web development</p>
+        <div className="text-center mt-8 text-sm opacity-90">
+          <p>Perfect for URLs, filenames, and web development.</p>
         </div>
       </div>
     </div>
