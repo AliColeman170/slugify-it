@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "seo tools",
     "web development",
     "filename converter",
-    "permalink generator"
+    "permalink generator",
   ],
   authors: [{ name: "Slugify.it" }],
   creator: "Slugify.it",
@@ -37,7 +38,8 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     title: "Slugify.it - Convert Text to SEO-Friendly Slugs",
-    description: "Convert any text into SEO-friendly slugs instantly. Perfect for URLs, filenames, and web development. Free online tool with real-time conversion.",
+    description:
+      "Convert any text into SEO-friendly slugs instantly. Perfect for URLs, filenames, and web development. Free online tool with real-time conversion.",
     type: "website",
     locale: "en_US",
     siteName: "Slugify.it",
@@ -53,7 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Slugify.it - Convert Text to SEO-Friendly Slugs",
-    description: "Convert any text into SEO-friendly slugs instantly. Perfect for URLs, filenames, and web development.",
+    description:
+      "Convert any text into SEO-friendly slugs instantly. Perfect for URLs, filenames, and web development.",
     images: ["/twitter-image"],
   },
   alternates: {
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: undefined, // Add Google Search Console verification ID here if needed
-  }
+  },
 };
 
 export default function RootLayout({
@@ -76,6 +79,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster richColors position="top-center" />
+        <Analytics />
       </body>
     </html>
   );
